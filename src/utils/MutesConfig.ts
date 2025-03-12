@@ -237,18 +237,20 @@ const MID = (col: RGB): RGB => {
 };
 
 export function createMutesManager(): MutesManager {
-  // const setMachineSourceSettingByID = (
-  //   machine: MidiMachine,
-  //   sourceIndex: number,
-  //   sid: SettingID,
-  //   value: number
-  // ): void => {
-  //   const source = machine.sources[sourceIndex];
-  //   const setting = source.settings.find((s) => s.id === sid);
-  //   if (setting) {
-  //     setting.value = value;
-  //   }
-  // };
+
+  // @ts-ignore
+  const setMachineSourceSettingByID = (
+    machine: MidiMachine,
+    sourceIndex: number,
+    sid: SettingID,
+    value: number
+  ): void => {
+    const source = machine.sources[sourceIndex];
+    const setting = source.settings.find((s) => s.id === sid);
+    if (setting) {
+      setting.value = value;
+    }
+  };
 
   const activateAllDestinations = (machine: MidiMachine): void => {
     machine.sources.forEach((source) => {

@@ -4,7 +4,6 @@ import React, {
   createContext,
   useContext,
   useState,
-  useEffect,
   ReactNode,
   useCallback,
 } from "react";
@@ -38,7 +37,6 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
   const [muteConfig, setMuteConfig] = useState<MutesConfig>(
     mutesManager.createEmptyMutesConfig()
   );
-  const [moduleAssignments, setModuleAssignments] = useState<any[]>([]);
 
   const [selectedSource, setSlectedSource] = useState<any>({});
 
@@ -58,14 +56,13 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
     }));
   };
 
-  const editMidiMachineMutes = (machine: MidiMachine) => {};
 
   const editMidiMachineSettings = (machine: Source) => {
     console.log("editing setting from machine: ", machine);
     setSlectedSource(machine);
   };
 
-  const assignSourceToModule = (assignment: any) => {
+  const assignSourceToModule = () => {
     // setModuleAssignments((prev) => [...prev, assignment]);
     // Optionally, persist to localStorage or backend
   };

@@ -29,7 +29,7 @@ function getItemStyles(
 }
 
 export const CustomDragLayer: React.FC<{ title: string }> = ({ title }) => {
-  const { itemType, isDragging, item, initialOffset, currentOffset } =
+  const { itemType, isDragging, initialOffset, currentOffset } =
     useDragLayer((monitor) => ({
       item: monitor.getItem(),
       itemType: monitor.getItemType(),

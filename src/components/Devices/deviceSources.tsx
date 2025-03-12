@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { DragPreviewImage, useDrag } from "react-dnd";
+import { useDrag } from "react-dnd";
 import { MidiMachine } from "../../types/MidiMachine";
 import { Source } from "src/types/MidiMachinesSources";
-import { CustomDragLayer } from "./CustomDragLayer";
 import { getEmptyImage } from "react-dnd-html5-backend";
 
 interface DeviceSourcesProps {
@@ -51,9 +50,8 @@ const DeviceSource: React.FC<any> = ({ source, onEdit }) => {
       {/* Original Source Item */}
       <li
         ref={drag as unknown as React.Ref<HTMLLIElement>}
-        className={`mb-2 p-2 rounded flex justify-between items-center ${
-          isDragging ? "opacity-50" : "opacity-100"
-        } bg-gray-700`}
+        className={`mb-2 p-2 rounded flex justify-between items-center ${isDragging ? "opacity-50" : "opacity-100"
+          } bg-gray-700`}
       >
         <div>
           <strong>{source.user_name || source.display_name}</strong> (

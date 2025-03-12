@@ -8,7 +8,6 @@ interface SettingsListProps {
 
 const SettingsList: React.FC<SettingsListProps> = ({
   settings,
-  onSettingsChange,
 }) => {
   const [localSettings, setLocalSettings] = useState(settings);
 
@@ -45,9 +44,8 @@ const SettingsList: React.FC<SettingsListProps> = ({
       {localSettings.map((item, index) => (
         <div
           key={item.id}
-          className={`flex items-center justify-between mb-4 p-4 rounded-md shadow-inner ${
-            index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
-          }`}
+          className={`flex items-center justify-between mb-4 p-4 rounded-md shadow-inner ${index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
+            }`}
         >
           <span className="text-sm font-bold text-gray-700 flex-1">
             {item.display_name}

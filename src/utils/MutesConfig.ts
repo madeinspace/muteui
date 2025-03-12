@@ -189,9 +189,9 @@ export interface MutesConfig {
   midiMachines: MidiMachine[];
 }
 
-export interface MidiInputPort {}
+export interface MidiInputPort { }
 
-export interface MidiOutputPort {}
+export interface MidiOutputPort { }
 
 export type MutesManager = {
   createEmptyMutesConfig: () => MutesConfig;
@@ -237,18 +237,18 @@ const MID = (col: RGB): RGB => {
 };
 
 export function createMutesManager(): MutesManager {
-  const setMachineSourceSettingByID = (
-    machine: MidiMachine,
-    sourceIndex: number,
-    sid: SettingID,
-    value: number
-  ): void => {
-    const source = machine.sources[sourceIndex];
-    const setting = source.settings.find((s) => s.id === sid);
-    if (setting) {
-      setting.value = value;
-    }
-  };
+  // const setMachineSourceSettingByID = (
+  //   machine: MidiMachine,
+  //   sourceIndex: number,
+  //   sid: SettingID,
+  //   value: number
+  // ): void => {
+  //   const source = machine.sources[sourceIndex];
+  //   const setting = source.settings.find((s) => s.id === sid);
+  //   if (setting) {
+  //     setting.value = value;
+  //   }
+  // };
 
   const activateAllDestinations = (machine: MidiMachine): void => {
     machine.sources.forEach((source) => {
@@ -2035,30 +2035,30 @@ export function createMutesManager(): MutesManager {
     setColorTheme(muteCfg, colorThemes[0]);
 
     /*
-	  // Uncomment and implement if needed
-	  for (let pc = 0; pc < 4; pc++) {
-		const prog_change = getMidiMachineByID(DefaultMachineID.MidiProgramChangeID);
-		setMachineSourceSettingByID(prog_change, 0, SettingID.MidiChannel, 9);
-		setMachineSourceSettingByID(prog_change, 0, SettingID.ProgramNumber, pc);
-		// setSourceLocation(prog_change, 0, MuteModule.Performer, DestinationType.Scenes, pc);
-		muteCfg.midiMachines.push(prog_change);
-	  }
+    // Uncomment and implement if needed
+    for (let pc = 0; pc < 4; pc++) {
+    const prog_change = getMidiMachineByID(DefaultMachineID.MidiProgramChangeID);
+    setMachineSourceSettingByID(prog_change, 0, SettingID.MidiChannel, 9);
+    setMachineSourceSettingByID(prog_change, 0, SettingID.ProgramNumber, pc);
+    // setSourceLocation(prog_change, 0, MuteModule.Performer, DestinationType.Scenes, pc);
+    muteCfg.midiMachines.push(prog_change);
+    }
   
-	  for (let bc = 0; bc < 8; bc++) {
-		const bank_change = getMidiMachineByID(DefaultMachineID.MidiBankChangeID);
-		setMachineSourceSettingByID(bank_change, 0, SettingID.MidiChannel, 9);
-		setMachineSourceSettingByID(bank_change, 0, SettingID.ContinuousControllerValue, bc);
-		// setSourceLocation(bank_change, 0, MuteModule.Performer, DestinationType.Banks, bc);
-		muteCfg.midiMachines.push(bank_change);
-	  }
+    for (let bc = 0; bc < 8; bc++) {
+    const bank_change = getMidiMachineByID(DefaultMachineID.MidiBankChangeID);
+    setMachineSourceSettingByID(bank_change, 0, SettingID.MidiChannel, 9);
+    setMachineSourceSettingByID(bank_change, 0, SettingID.ContinuousControllerValue, bc);
+    // setSourceLocation(bank_change, 0, MuteModule.Performer, DestinationType.Banks, bc);
+    muteCfg.midiMachines.push(bank_change);
+    }
   
-	  for (let m = 0; m < 16; m++) {
-		const mute = getMidiMachineByID(DefaultMachineID.GMMidiMute);
-		setMachineSourceSettingByID(mute, 0, SettingID.MidiChannel, m + 1);
-		// setSourceLocation(mute, 0, m < 8 ? MuteModule.Performer : MuteModule.Expander1, DestinationType.MuteChannels, m < 8 ? m : m - 8);
-		muteCfg.midiMachines.push(mute);
-	  }
-	  */
+    for (let m = 0; m < 16; m++) {
+    const mute = getMidiMachineByID(DefaultMachineID.GMMidiMute);
+    setMachineSourceSettingByID(mute, 0, SettingID.MidiChannel, m + 1);
+    // setSourceLocation(mute, 0, m < 8 ? MuteModule.Performer : MuteModule.Expander1, DestinationType.MuteChannels, m < 8 ? m : m - 8);
+    muteCfg.midiMachines.push(mute);
+    }
+    */
 
     const bank_change = getMidiMachineByID(DefaultMachineID.MidiBankChangeID);
     activateAllDestinations(bank_change);
@@ -2086,7 +2086,7 @@ export function createMutesManager(): MutesManager {
   ): void => {
     const currentStatus =
       mutesConfig.banks[bankNum].scenes[sceneNum].modules[muteModule].mutes[
-        muteChannel
+      muteChannel
       ];
     mutesConfig.banks[bankNum].scenes[sceneNum].modules[muteModule].mutes[
       muteChannel

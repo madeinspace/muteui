@@ -1,4 +1,3 @@
-import React from "react";
 import Module from "./module";
 
 export const Modules = () => {

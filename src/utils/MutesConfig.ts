@@ -1729,7 +1729,6 @@ export function createMutesManager(): MutesManager {
   };
 
   const getAllColorThemes = (): ColorThemeList => {
-    const RGB_BLACK: RGB = [0, 0, 0];
     const RGB_RED: RGB = [0xff, 0x00, 0x00];
     const RGB_GREEN: RGB = [0x00, 0xff, 0x00];
     const RGB_BLUE: RGB = [0x00, 0x00, 0xff];
@@ -1738,7 +1737,6 @@ export function createMutesManager(): MutesManager {
     const RGB_PURPLE: RGB = [0xff, 0x00, 0xff];
     const RGB_WHITE: RGB = [0xff, 0xff, 0xff];
     const RGB_CYAN: RGB = [0x00, 0xdd, 0xff];
-    const RGB_PINK: RGB = [0xff, 0x90, 0xab];
 
     return {
       color_theme_list: [
@@ -2094,17 +2092,11 @@ export function createMutesManager(): MutesManager {
   };
 
   const loadFromMidi = (
-    muteConfig: MutesConfig,
-    midiInputPort: MidiInputPort,
-    midiOutputPort: MidiOutputPort
   ): void => {
     console.warn("loadFromMidi - Not implemented yet.");
   };
 
   const saveToMidi = (
-    muteConfig: MutesConfig,
-    midiInputPort: MidiInputPort,
-    midiOutputPort: MidiOutputPort
   ): void => {
     console.warn("saveToMidi - Not implemented yet.");
   };
